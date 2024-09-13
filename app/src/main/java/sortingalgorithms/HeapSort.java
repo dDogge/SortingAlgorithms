@@ -1,5 +1,19 @@
 package sortingalgorithms;
 
-public class HeapSort {
+import java.util.List;
+
+public class HeapSort implements SortingAlgorithm{
+
+    @Override
+    public void Sort() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Sort'");
+    }
+
+    @Override
+    public List<Integer> getList() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getList'");
+    }
     
 }
