@@ -2,7 +2,7 @@ package sortingalgorithms;
 
 import java.util.List;
 
-public class CountingSort implements SortingAlgorithm{
+public class CountingSort implements SortingAlgorithm {
 
     @Override
     public void Sort() {

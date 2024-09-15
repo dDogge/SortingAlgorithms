@@ -3,9 +3,9 @@ package sortingalgorithms;
 import java.util.Collections;
 import java.util.List;
 
-public class BubbleSort implements SortingAlgorithm{
+public class BubbleSort implements SortingAlgorithm {
     List<Integer> list;
-    
+
     public BubbleSort(List<Integer> list) {
         this.list = list;
     }

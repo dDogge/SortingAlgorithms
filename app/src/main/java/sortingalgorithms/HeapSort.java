@@ -2,7 +2,7 @@ package sortingalgorithms;
 
 import java.util.List;
 
-public class HeapSort implements SortingAlgorithm{
+public class HeapSort implements SortingAlgorithm {
 
     @Override
     public void Sort() {

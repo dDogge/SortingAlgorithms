@@ -2,7 +2,7 @@ package sortingalgorithms;
 
 import java.util.List;
 
-public class BucketSort implements SortingAlgorithm{
+public class BucketSort implements SortingAlgorithm {
 
     @Override
     public void Sort() {
@@ -15,5 +15,5 @@ public class BucketSort implements SortingAlgorithm{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getList'");
     }
-    
+
 }

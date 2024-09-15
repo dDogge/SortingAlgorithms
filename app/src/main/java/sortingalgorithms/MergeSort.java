@@ -2,7 +2,7 @@ package sortingalgorithms;
 
 import java.util.List;
 
-public class MergeSort implements SortingAlgorithm{
+public class MergeSort implements SortingAlgorithm {
 
     @Override
     public void Sort() {

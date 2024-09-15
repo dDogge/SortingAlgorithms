@@ -2,7 +2,7 @@ package sortingalgorithms;
 
 import java.util.List;
 
-public class QuickSort implements SortingAlgorithm{
+public class QuickSort implements SortingAlgorithm {
 
     @Override
     public void Sort() {
