@@ -22,13 +22,19 @@ public class App {
 
         // BubbleSort bs = new BubbleSort(list);
         // bs.Sort();
-        SelectionSort ss = new SelectionSort(list);
-        ss.Sort();
+        // SelectionSort ss = new SelectionSort(list);
+        // ss.Sort();
+        CocktailSort cs = new CocktailSort(list);
+        long time1 = System.currentTimeMillis();
+        cs.Sort();
+        long time2 = System.currentTimeMillis() - time1;
 
-        list = ss.getList();
+        list = cs.getList();
         for (int i : list) {
             System.out.println(i + " ");
         }
+
+        System.out.println(time2 + "ms");
 
     }
 }
