@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CocktailSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
 
     public CocktailSort(List<Integer> list) {
         this.list = list;
