@@ -24,12 +24,14 @@ public class App {
         // bs.Sort();
         // SelectionSort ss = new SelectionSort(list);
         // ss.Sort();
-        CocktailSort cs = new CocktailSort(list);
+        // CocktailSort cs = new CocktailSort(list);
+        // cs.Sort();
+        InsertionSort is = new InsertionSort(list);
         long time1 = System.currentTimeMillis();
-        cs.Sort();
+        is.Sort();
         long time2 = System.currentTimeMillis() - time1;
 
-        list = cs.getList();
+        list = is.getList();
         for (int i : list) {
             System.out.println(i + " ");
         }
