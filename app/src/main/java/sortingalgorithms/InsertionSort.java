@@ -10,7 +10,7 @@ public class InsertionSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort() {
+    public void Sort() { 
         int n = list.size();
         int key;
 
