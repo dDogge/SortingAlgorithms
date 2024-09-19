@@ -11,6 +11,8 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
+        UI ui = new UI();
         
         System.out.println("Type 1 if you want to sort a list");
         int choice = scan.nextInt();
@@ -94,7 +96,6 @@ public class App {
             System.out.println("Otherwise type anything else");
             choice = scan.nextInt();
             if (choice != 1) {
-                scan.close();
                 System.exit(0);
             }
         }
