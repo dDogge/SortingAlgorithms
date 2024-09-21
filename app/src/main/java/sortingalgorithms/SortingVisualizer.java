@@ -6,19 +6,27 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class UI {
+public class SortingVisualizer {
+    private JFrame f;
+    private JPanel sidePanel;
+    private JPanel visualList;
+    private JButton shuffleList;
+    private JButton exit;
+    private JButton selectAlg;
+    private JButton sort;
+    private JComboBox<String> selection;
 
-    public UI() {
-        JFrame f = new JFrame("SORT");
-        JPanel sidePanel = new JPanel();
-        JPanel visualList = new JPanel();
-        JButton shuffleList = new JButton("SHUFFLE LIST");
-        JButton exit = new JButton("EXIT");
-        JButton selectAlg = new JButton("SELECT");
-        JButton sort = new JButton("SORT");
+    public SortingVisualizer() {
+        this.f = new JFrame("SORT");
+        this.sidePanel = new JPanel();
+        this.visualList = new JPanel();
+        this.shuffleList = new JButton("SHUFFLE LIST");
+        this.exit = new JButton("EXIT");
+        this.selectAlg = new JButton("SELECT");
+        this.sort = new JButton("SORT");
 
-        String[] options = {"Bubble Sort", "Cocktail Sort"};
-        JComboBox<String> selection = new JComboBox<>(options);
+        String[] options = { "Bubble Sort", "Cocktail Sort" };
+        this.selection = new JComboBox<>(options);
 
         selection.setBounds(20, 50, 120, 30);
         selectAlg.setBounds(20, 90, 120, 50);

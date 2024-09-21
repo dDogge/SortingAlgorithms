@@ -12,8 +12,8 @@ public class App {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        UI ui = new UI();
-        
+        SortingVisualizer ui = new SortingVisualizer();
+
         System.out.println("Type 1 if you want to sort a list");
         int choice = scan.nextInt();
 
@@ -23,7 +23,7 @@ public class App {
         }
 
         while (choice == 1) {
-            
+
             List<Integer> list = new ArrayList<>();
             for (int i = 0; i < 1000; i++) {
                 list.add(i + 1);
@@ -76,7 +76,7 @@ public class App {
                     System.out.println(i + " ");
                 }
                 System.out.println(time2 + "ms");
-                
+
             } else if (selectList == 4) {
                 InsertionSort is = new InsertionSort(list);
                 time1 = System.currentTimeMillis();
