@@ -2,13 +2,15 @@ package sortingalgorithms;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SortingVisualizer {
+public class SortingVisualizer implements ActionListener{
     private Utility util;
     private JFrame f;
     private JPanel sidePanel;
@@ -50,8 +52,10 @@ public class SortingVisualizer {
         sort.setBackground(Color.GREEN);
         shuffleList.setBounds(20, 230, 120, 50);
         shuffleList.setBackground(Color.LIGHT_GRAY);
+        shuffleList.addActionListener(this);
         exit.setBounds(20, 830, 120, 50);
         exit.setBackground(Color.RED);
+        exit.addActionListener(this);
 
         sidePanel.setBackground(Color.DARK_GRAY);
         sidePanel.setBounds(0, 0, 160, 900);
@@ -87,6 +91,19 @@ public class SortingVisualizer {
 
             g.setColor(Color.GREEN);   
             g.fillRect(x, y, width, barHeight); 
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == shuffleList) {
+            util.shuffleList();
+            list = util.getObjectList();
+            visualList.repaint();
+        }
+
+        if (e.getSource() == exit) {
+            System.exit(0);
         }
     }
 }
