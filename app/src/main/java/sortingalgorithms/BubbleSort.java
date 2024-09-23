@@ -3,6 +3,8 @@ package sortingalgorithms;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class BubbleSort implements SortingAlgorithm {
     List<Integer> list;
 
@@ -11,7 +13,7 @@ public class BubbleSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort() {
+    public void Sort(JPanel visualList) {
         int n = list.size();
         boolean swapped;
 

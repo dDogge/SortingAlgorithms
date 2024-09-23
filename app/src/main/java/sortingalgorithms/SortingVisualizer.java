@@ -14,7 +14,7 @@ public class SortingVisualizer implements ActionListener{
     private Utility util;
     private JFrame f;
     private JPanel sidePanel;
-    protected JPanel visualList;
+    private JPanel visualList;
     private JButton shuffleList;
     private JButton exit;
     private JButton selectAlg;
@@ -117,12 +117,12 @@ public class SortingVisualizer implements ActionListener{
         if (e.getSource() == sort) {
             if (selected == "Bubble Sort") {
                 BubbleSort bs = new BubbleSort(list);
-                bs.Sort();
+                bs.Sort(visualList);
                 list = bs.getList();
                 visualList.repaint();
             } else if (selected == "Cocktail Sort") {
                 CocktailSort cs = new CocktailSort(list);
-                cs.Sort();
+                cs.Sort(visualList);
                 list = cs.getList();
                 visualList.repaint();
             }
