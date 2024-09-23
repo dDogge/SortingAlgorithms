@@ -7,6 +7,5 @@ public class App {
 
         SortingVisualizer ui = new SortingVisualizer();
 
-        
     }
 }

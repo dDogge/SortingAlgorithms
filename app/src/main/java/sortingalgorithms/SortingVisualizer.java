@@ -14,13 +14,14 @@ public class SortingVisualizer implements ActionListener{
     private Utility util;
     private JFrame f;
     private JPanel sidePanel;
-    private JPanel visualList;
+    protected JPanel visualList;
     private JButton shuffleList;
     private JButton exit;
     private JButton selectAlg;
     private JButton sort;
     private JComboBox<String> selection;
     List<Integer> list;
+    private String selected;
 
     public SortingVisualizer() {
         this.f = new JFrame("SORT");
@@ -48,8 +49,10 @@ public class SortingVisualizer implements ActionListener{
         selection.setBounds(20, 50, 120, 30);
         selectAlg.setBounds(20, 90, 120, 50);
         selectAlg.setBackground(Color.LIGHT_GRAY);
+        selectAlg.addActionListener(this);
         sort.setBounds(20, 160, 120, 50);
         sort.setBackground(Color.GREEN);
+        sort.addActionListener(this);
         shuffleList.setBounds(20, 230, 120, 50);
         shuffleList.setBackground(Color.LIGHT_GRAY);
         shuffleList.addActionListener(this);
@@ -104,6 +107,25 @@ public class SortingVisualizer implements ActionListener{
 
         if (e.getSource() == exit) {
             System.exit(0);
+        }
+
+        if (e.getSource() == selectAlg) {
+            selected = (String)selection.getSelectedItem();
+            System.out.println(selected);
+        }
+
+        if (e.getSource() == sort) {
+            if (selected == "Bubble Sort") {
+                BubbleSort bs = new BubbleSort(list);
+                bs.Sort();
+                list = bs.getList();
+                visualList.repaint();
+            } else if (selected == "Cocktail Sort") {
+                CocktailSort cs = new CocktailSort(list);
+                cs.Sort();
+                list = cs.getList();
+                visualList.repaint();
+            }
         }
     }
 }
