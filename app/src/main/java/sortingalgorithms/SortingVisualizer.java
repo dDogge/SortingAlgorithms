@@ -70,13 +70,13 @@ public class SortingVisualizer implements ActionListener{
         sidePanel.setLayout(null);
 
         visualList.setBackground(Color.BLACK);
-        visualList.setBounds(160, 0, 900, 900);
+        visualList.setBounds(160, 0, 901, 900);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(visualList);
         f.add(sidePanel);
         f.setLayout(null);
-        f.setSize(1060, 900);
+        f.setSize(1061, 900);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
     }
@@ -115,17 +115,15 @@ public class SortingVisualizer implements ActionListener{
         }
 
         if (e.getSource() == sort) {
-            if (selected == "Bubble Sort") {
-                BubbleSort bs = new BubbleSort(list);
-                bs.Sort(visualList);
-                list = bs.getList();
-                visualList.repaint();
-            } else if (selected == "Cocktail Sort") {
-                CocktailSort cs = new CocktailSort(list);
-                cs.Sort(visualList);
-                list = cs.getList();
-                visualList.repaint();
-            }
+            new Thread(() -> {
+                if (selected.equals("Bubble Sort")) {
+                    BubbleSort bs = new BubbleSort(list);
+                    bs.Sort(visualList);
+                } else if (selected.equals("Cocktail Sort")) {
+                    CocktailSort cs = new CocktailSort(list);
+                    cs.Sort(visualList);
+                }
+            }).start(); // Run sorting on a separate thread
         }
     }
 }

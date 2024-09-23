@@ -2,6 +2,8 @@ package sortingalgorithms;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class InsertionSort implements SortingAlgorithm {
     private List<Integer> list;
 
@@ -10,7 +12,7 @@ public class InsertionSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort() { 
+    public void Sort(JPanel visualList) { 
         int n = list.size();
         int key;
 

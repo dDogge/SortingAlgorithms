@@ -3,6 +3,8 @@ package sortingalgorithms;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class CocktailSort implements SortingAlgorithm {
     private List<Integer> list;
 
@@ -11,7 +13,7 @@ public class CocktailSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort() {
+    public void Sort(JPanel visualList) {
         int start = 0;
         int end = list.size() - 1;
         boolean swapped = true;
@@ -22,6 +24,12 @@ public class CocktailSort implements SortingAlgorithm {
             for (int i = start; i < end; i++) {
                 if (list.get(i) > list.get(i + 1)) {
                     Collections.swap(list, i, i + 1);
+                    visualList.repaint();
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     swapped = true;
                 }
             }
@@ -36,6 +44,12 @@ public class CocktailSort implements SortingAlgorithm {
             for (int i = (end - 1); i >= start; i--) {
                 if (list.get(i) > list.get(i + 1)) {
                     Collections.swap(list, i, i + 1);
+                    visualList.repaint();
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     swapped = true;
                 }
             }

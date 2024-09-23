@@ -3,6 +3,8 @@ package sortingalgorithms;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class SelectionSort implements SortingAlgorithm {
     List<Integer> list;
 
@@ -11,7 +13,7 @@ public class SelectionSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort() {
+    public void Sort(JPanel visualList) {
         int n = list.size();
 
         for (int i = 0; i < (n - 1); i++) {

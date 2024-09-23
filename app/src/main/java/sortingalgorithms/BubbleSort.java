@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class BubbleSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
 
     public BubbleSort(List<Integer> list) {
         this.list = list;
@@ -23,6 +23,12 @@ public class BubbleSort implements SortingAlgorithm {
             for (int i = 0; i < n - 1; i++) {
                 if (list.get(i) > list.get(i + 1)) {
                     Collections.swap(list, i, i + 1);
+                    visualList.repaint();
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     swapped = true;
                 }
             }

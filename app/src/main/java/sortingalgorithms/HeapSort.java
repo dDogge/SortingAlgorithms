@@ -2,10 +2,12 @@ package sortingalgorithms;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class HeapSort implements SortingAlgorithm {
 
     @Override
-    public void Sort() {
+    public void Sort(JPanel visualList) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'Sort'");
     }
