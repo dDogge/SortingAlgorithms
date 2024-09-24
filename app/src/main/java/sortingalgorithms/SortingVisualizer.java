@@ -32,10 +32,10 @@ public class SortingVisualizer implements ActionListener{
         this.sort = new JButton("SORT");
         this.util = new Utility();
 
-        String[] options = { "Bubble Sort", "Cocktail Sort" };
+        String[] options = { "Bubble Sort", "Cocktail Sort", "Selection Sort", "Insertion Sort" };
         this.selection = new JComboBox<>(options);
 
-        util.addObjects(900);
+        util.addObjects(300);
         this.list = util.getObjectList();
 
         this.visualList = new JPanel() {
@@ -122,6 +122,12 @@ public class SortingVisualizer implements ActionListener{
                 } else if (selected.equals("Cocktail Sort")) {
                     CocktailSort cs = new CocktailSort(list);
                     cs.Sort(visualList);
+                } else if (selected.equals("Selection Sort")) {
+                    SelectionSort ss = new SelectionSort(list);
+                    ss.Sort(visualList);
+                } else if (selected.equals("Insertion Sort")) {
+                    InsertionSort is = new InsertionSort(list);
+                    is.Sort(visualList);
                 }
             }).start(); // Run sorting on a separate thread
         }

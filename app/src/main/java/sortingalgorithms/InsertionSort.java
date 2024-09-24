@@ -12,7 +12,7 @@ public class InsertionSort implements SortingAlgorithm {
     }
 
     @Override
-    public void Sort(JPanel visualList) { 
+    public void Sort(JPanel visualList) {
         int n = list.size();
         int key;
 
@@ -22,10 +22,22 @@ public class InsertionSort implements SortingAlgorithm {
 
             while (j >= 0 && list.get(j) > key) {
                 list.set(j + 1, list.get(j));
+                visualList.repaint();
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 j = j - 1;
             }
 
             list.set(j + 1, key);
+            visualList.repaint();
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -33,5 +45,5 @@ public class InsertionSort implements SortingAlgorithm {
     public List<Integer> getList() {
         return list;
     }
-    
+
 }

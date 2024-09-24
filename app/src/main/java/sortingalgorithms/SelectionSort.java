@@ -27,6 +27,12 @@ public class SelectionSort implements SortingAlgorithm {
 
             if (min != i) {
                 Collections.swap(list, i, min);
+                visualList.repaint();
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
