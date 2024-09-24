@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class SortingVisualizer implements ActionListener{
     private Utility util;
@@ -18,8 +19,10 @@ public class SortingVisualizer implements ActionListener{
     private JButton shuffleList;
     private JButton exit;
     private JButton selectAlg;
+    private JButton selectAmount;
     private JButton sort;
     private JComboBox<String> selection;
+    private JComboBox<String> amount;
     List<Integer> list;
     private String selected;
 
@@ -30,8 +33,16 @@ public class SortingVisualizer implements ActionListener{
         this.exit = new JButton("EXIT");
         this.selectAlg = new JButton("SELECT");
         this.sort = new JButton("SORT");
+        this.selectAmount = new JButton("SELECT");
         this.util = new Utility();
 
+        String[] placeHolders = {
+            "100", "150", "200", "250", "300", 
+            "350", "400", "450", "500", "550", 
+            "600", "650", "700", "750", "800", 
+            "850", "900"
+        }; 
+        this.amount = new JComboBox<>(placeHolders);
         String[] options = { "Bubble Sort", "Cocktail Sort", "Selection Sort", "Insertion Sort" };
         this.selection = new JComboBox<>(options);
 
@@ -46,14 +57,18 @@ public class SortingVisualizer implements ActionListener{
             }
         };
 
-        selection.setBounds(20, 50, 120, 30);
-        selectAlg.setBounds(20, 90, 120, 50);
+        selection.setBounds(20, 20, 120, 30);
+        selectAlg.setBounds(20, 50, 120, 50);
         selectAlg.setBackground(Color.LIGHT_GRAY);
         selectAlg.addActionListener(this);
-        sort.setBounds(20, 160, 120, 50);
+        amount.setBounds(20, 120, 120, 30);
+        selectAmount.setBounds(20, 150, 120, 50);
+        selectAmount.setBackground(Color.LIGHT_GRAY);
+        selectAmount.addActionListener(this);
+        sort.setBounds(20, 220, 120, 50);
         sort.setBackground(Color.GREEN);
         sort.addActionListener(this);
-        shuffleList.setBounds(20, 230, 120, 50);
+        shuffleList.setBounds(20, 290, 120, 50);
         shuffleList.setBackground(Color.LIGHT_GRAY);
         shuffleList.addActionListener(this);
         exit.setBounds(20, 830, 120, 50);
@@ -62,6 +77,8 @@ public class SortingVisualizer implements ActionListener{
 
         sidePanel.setBackground(Color.DARK_GRAY);
         sidePanel.setBounds(0, 0, 160, 900);
+        sidePanel.add(amount);
+        sidePanel.add(selectAmount);
         sidePanel.add(selection);
         sidePanel.add(selectAlg);
         sidePanel.add(shuffleList);
@@ -101,6 +118,14 @@ public class SortingVisualizer implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == shuffleList) {
             util.shuffleList();
+            list = util.getObjectList();
+            visualList.repaint();
+        }
+
+        if (e.getSource() == selectAmount) {
+            int size = Integer.parseInt((String)amount.getSelectedItem());
+            util.emptyList();
+            util.addObjects(size);
             list = util.getObjectList();
             visualList.repaint();
         }

@@ -7,11 +7,9 @@ import java.util.Random;
 
 public class Utility {
     private List<Integer> objectList;
-    private List<SortingAlgorithm> algorithmList;
 
     public Utility() {
         this.objectList = new ArrayList<>();
-        this.algorithmList = new ArrayList<>();
     }
 
     public void addObjects(int amount) {
@@ -19,14 +17,6 @@ public class Utility {
             objectList.add(i + 1);
         }
         Collections.shuffle(objectList, new Random());
-    }
-
-    public void addAlgorithm(SortingAlgorithm algorithm) {
-        if (algorithmList.contains(algorithm)) {
-            throw new IllegalArgumentException("This algorithm is already in the list!");
-        } else {
-            algorithmList.add(algorithm);
-        }
     }
 
     public void shuffleList() {
@@ -37,7 +27,7 @@ public class Utility {
         return objectList;
     }
 
-    public List<SortingAlgorithm> geAlgorithmList() {
-        return algorithmList;
+    public void emptyList() {
+        objectList.clear();
     }
 }
