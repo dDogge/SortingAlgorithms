@@ -143,16 +143,35 @@ public class SortingVisualizer implements ActionListener{
             new Thread(() -> {
                 if (selected.equals("Bubble Sort")) {
                     BubbleSort bs = new BubbleSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
                     bs.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+
                 } else if (selected.equals("Cocktail Sort")) {
                     CocktailSort cs = new CocktailSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
                     cs.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+
                 } else if (selected.equals("Selection Sort")) {
                     SelectionSort ss = new SelectionSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
                     ss.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+                    
                 } else if (selected.equals("Insertion Sort")) {
                     InsertionSort is = new InsertionSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
                     is.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
                 }
             }).start(); // Run sorting on a separate thread
         }
