@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class SortingVisualizer implements ActionListener{
     private Utility util;
@@ -43,7 +42,7 @@ public class SortingVisualizer implements ActionListener{
             "850", "900"
         }; 
         this.amount = new JComboBox<>(placeHolders);
-        String[] options = { "Bubble Sort", "Cocktail Sort", "Selection Sort", "Insertion Sort" };
+        String[] options = { "Bubble Sort", "Cocktail Sort", "Selection Sort", "Insertion Sort", "Bogo Sort" };
         this.selection = new JComboBox<>(options);
 
         util.addObjects(300);
@@ -170,6 +169,14 @@ public class SortingVisualizer implements ActionListener{
                     shuffleList.setEnabled(false);
                     selectAmount.setEnabled(false);
                     is.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+
+                } else if (selected.equals("Bogo Sort")) {
+                    BogoSort bs = new BogoSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
+                    bs.Sort(visualList);
                     shuffleList.setEnabled(true);
                     selectAmount.setEnabled(true);
                 }
