@@ -36,13 +36,17 @@ public class SortingVisualizer implements ActionListener{
         this.util = new Utility();
 
         String[] placeHolders = {
-            "100", "150", "200", "250", "300", 
+            "10", "100", "150", "200", "250", "300", 
             "350", "400", "450", "500", "550", 
             "600", "650", "700", "750", "800", 
             "850", "900"
         }; 
         this.amount = new JComboBox<>(placeHolders);
-        String[] options = { "Bubble Sort", "Cocktail Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Bogo Sort" };
+        String[] options = {   
+            "Bubble Sort", "Cocktail Sort", "Selection Sort", 
+            "Insertion Sort", "Merge Sort", "Bogo Sort",
+            "Quick Sort" 
+        };
         this.selection = new JComboBox<>(options);
 
         util.addObjects(300);
@@ -196,6 +200,16 @@ public class SortingVisualizer implements ActionListener{
                     selectAmount.setEnabled(false);
                     selectAlg.setEnabled(false);
                     ms.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+                    selectAlg.setEnabled(true);
+
+                } else if (selected.equals("Quick Sort")) {
+                    QuickSort qs = new QuickSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
+                    selectAlg.setEnabled(false);
+                    qs.Sort(visualList);
                     shuffleList.setEnabled(true);
                     selectAmount.setEnabled(true);
                     selectAlg.setEnabled(true);
