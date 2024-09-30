@@ -1,6 +1,5 @@
 package sortingalgorithms;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class QuickSort implements SortingAlgorithm {
         int i = low - 1;
 
         for (int j = low; j < high; j++) {
-            if(list.get(j) < pivot) {
+            if (list.get(j) < pivot) {
                 i++;
                 Collections.swap(list, i, j);
                 visualList.repaint();
@@ -57,5 +56,5 @@ public class QuickSort implements SortingAlgorithm {
     public List<Integer> getList() {
         return list;
     }
-    
+
 }

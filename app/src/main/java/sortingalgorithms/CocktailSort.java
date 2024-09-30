@@ -53,7 +53,7 @@ public class CocktailSort implements SortingAlgorithm {
                     swapped = true;
                 }
             }
-            
+
             start += 1;
 
         } while (swapped);
@@ -63,5 +63,5 @@ public class CocktailSort implements SortingAlgorithm {
     public List<Integer> getList() {
         return list;
     }
-    
+
 }

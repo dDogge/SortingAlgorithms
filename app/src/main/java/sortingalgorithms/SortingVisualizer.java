@@ -10,7 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SortingVisualizer implements ActionListener{
+public class SortingVisualizer implements ActionListener {
     private Utility util;
     private JFrame f;
     private JPanel sidePanel;
@@ -36,16 +36,16 @@ public class SortingVisualizer implements ActionListener{
         this.util = new Utility();
 
         String[] placeHolders = {
-            "10", "100", "150", "200", "250", "300", 
-            "350", "400", "450", "500", "550", 
-            "600", "650", "700", "750", "800", 
-            "850", "900"
-        }; 
+                "10", "100", "150", "200", "250", "300",
+                "350", "400", "450", "500", "550",
+                "600", "650", "700", "750", "800",
+                "850", "900"
+        };
         this.amount = new JComboBox<>(placeHolders);
-        String[] options = {   
-            "Bubble Sort", "Cocktail Sort", "Selection Sort", 
-            "Insertion Sort", "Merge Sort", "Bogo Sort",
-            "Quick Sort" 
+        String[] options = {
+                "Bubble Sort", "Cocktail Sort", "Selection Sort",
+                "Insertion Sort", "Merge Sort", "Bogo Sort",
+                "Quick Sort"
         };
         this.selection = new JComboBox<>(options);
 
@@ -102,18 +102,18 @@ public class SortingVisualizer implements ActionListener{
     }
 
     private void drawArray(Graphics g) {
-        int startX = 1;  
-        int width = 1;     
-        int height = visualList.getHeight(); 
-    
-        for (int i = 0; i < list.size(); i++) {
-            int value = list.get(i);  
-            int barHeight = value;     
-            int x = startX + i;        
-            int y = height - barHeight; 
+        int startX = 1;
+        int width = 1;
+        int height = visualList.getHeight();
 
-            g.setColor(Color.GREEN);   
-            g.fillRect(x, y, width, barHeight); 
+        for (int i = 0; i < list.size(); i++) {
+            int value = list.get(i);
+            int barHeight = value;
+            int x = startX + i;
+            int y = height - barHeight;
+
+            g.setColor(Color.GREEN);
+            g.fillRect(x, y, width, barHeight);
         }
     }
 
@@ -126,7 +126,7 @@ public class SortingVisualizer implements ActionListener{
         }
 
         if (e.getSource() == selectAmount) {
-            int size = Integer.parseInt((String)amount.getSelectedItem());
+            int size = Integer.parseInt((String) amount.getSelectedItem());
             util.emptyList();
             util.addObjects(size);
             list = util.getObjectList();
@@ -138,7 +138,7 @@ public class SortingVisualizer implements ActionListener{
         }
 
         if (e.getSource() == selectAlg) {
-            selected = (String)selection.getSelectedItem();
+            selected = (String) selection.getSelectedItem();
             System.out.println(selected);
         }
 
@@ -173,7 +173,7 @@ public class SortingVisualizer implements ActionListener{
                     shuffleList.setEnabled(true);
                     selectAmount.setEnabled(true);
                     selectAlg.setEnabled(true);
-                    
+
                 } else if (selected.equals("Insertion Sort")) {
                     InsertionSort is = new InsertionSort(list);
                     shuffleList.setEnabled(false);

@@ -18,14 +18,14 @@ public class BogoSort implements SortingAlgorithm {
         boolean isSorted = false;
 
         while (!isSorted) {
-            isSorted = true; 
+            isSorted = true;
             for (int i = 0; i < n - 1; i++) {
                 if (list.get(i) > list.get(i + 1)) {
-                    isSorted = false; 
+                    isSorted = false;
                     break;
                 }
             }
-            
+
             if (!isSorted) {
                 visualList.repaint();
                 Collections.shuffle(list);
@@ -42,5 +42,5 @@ public class BogoSort implements SortingAlgorithm {
     public List<Integer> getList() {
         return list;
     }
-    
+
 }
