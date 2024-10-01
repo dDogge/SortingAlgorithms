@@ -24,8 +24,10 @@ public class SortingVisualizer implements ActionListener {
     private JComboBox<String> amount;
     List<Integer> list;
     private String selected;
+    private int amountOfSwaps, amountOfEntries, amountOfComparisons;
 
     public SortingVisualizer() {
+        amountOfSwaps = amountOfEntries = amountOfComparisons = 0;
         this.f = new JFrame("SORT");
         this.sidePanel = new JPanel();
         this.shuffleList = new JButton("SHUFFLE LIST");
@@ -227,4 +229,17 @@ public class SortingVisualizer implements ActionListener {
             }).start(); // Run sorting on a separate thread
         }
     }
+
+    public void incrementAmountOfSwaps() {
+
+    }
+
+    public void incrementAmountOfEntries() {
+
+    }
+
+    public void incrementAmountofComparisons() {
+        
+    }
+
 }
