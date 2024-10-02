@@ -47,7 +47,7 @@ public class SortingVisualizer implements ActionListener {
         String[] options = {
                 "Bubble Sort", "Cocktail Sort", "Selection Sort",
                 "Insertion Sort", "Merge Sort", "Bucket Sort",
-                "Quick Sort", "Bogo Sort",
+                "Quick Sort", "Shell Sort", "Bogo Sort",
         };
         this.selection = new JComboBox<>(options);
 
@@ -222,6 +222,15 @@ public class SortingVisualizer implements ActionListener {
                     selectAmount.setEnabled(false);
                     selectAlg.setEnabled(false);
                     bs.Sort(visualList);
+                    shuffleList.setEnabled(true);
+                    selectAmount.setEnabled(true);
+                    selectAlg.setEnabled(true);
+                } else if (selected.equals("Shell Sort")) {
+                    ShellSort ss = new ShellSort(list);
+                    shuffleList.setEnabled(false);
+                    selectAmount.setEnabled(false);
+                    selectAlg.setEnabled(false);
+                    ss.Sort(visualList);
                     shuffleList.setEnabled(true);
                     selectAmount.setEnabled(true);
                     selectAlg.setEnabled(true);
