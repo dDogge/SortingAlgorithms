@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SortingVisualizer implements ActionListener {
@@ -20,6 +21,8 @@ public class SortingVisualizer implements ActionListener {
     private JButton selectAlg;
     private JButton selectAmount;
     private JButton sort;
+    private JLabel swapsLabel, entriesLabel, comparisonsLabel;
+    private JLabel swaps, entries, comparisons;
     private JComboBox<String> selection;
     private JComboBox<String> amount;
     List<Integer> list;
@@ -28,6 +31,12 @@ public class SortingVisualizer implements ActionListener {
 
     public SortingVisualizer() {
         amountOfSwaps = amountOfEntries = amountOfComparisons = 0;
+        this.swapsLabel = new JLabel("SWAPS:");
+        this.entriesLabel = new JLabel("ENTRIES:");
+        this.comparisonsLabel = new JLabel("COMPARISONS:");
+        this.swaps = new JLabel("0");
+        this.entries = new JLabel("0");
+        this.comparisons = new JLabel("0");
         this.f = new JFrame("SORT");
         this.sidePanel = new JPanel();
         this.shuffleList = new JButton("SHUFFLE LIST");
@@ -62,6 +71,18 @@ public class SortingVisualizer implements ActionListener {
             }
         };
 
+        swapsLabel.setBounds(20, 360, 120, 20);
+        swapsLabel.setForeground(Color.LIGHT_GRAY);
+        entriesLabel.setBounds(20, 410, 120, 20);
+        entriesLabel.setForeground(Color.LIGHT_GRAY);
+        comparisonsLabel.setBounds(20, 460, 120, 20);
+        comparisonsLabel.setForeground(Color.LIGHT_GRAY);
+        swaps.setBounds(20, 381, 120, 20);
+        swaps.setForeground(Color.GREEN);
+        entries.setBounds(20, 431, 120, 20);
+        entries.setForeground(Color.GREEN);
+        comparisons.setBounds(20, 481, 120, 20);
+        comparisons.setForeground(Color.GREEN);
         selection.setBounds(20, 20, 120, 30);
         selectAlg.setBounds(20, 50, 120, 50);
         selectAlg.setBackground(Color.LIGHT_GRAY);
@@ -82,6 +103,12 @@ public class SortingVisualizer implements ActionListener {
 
         sidePanel.setBackground(Color.DARK_GRAY);
         sidePanel.setBounds(0, 0, 160, 900);
+        sidePanel.add(swapsLabel);
+        sidePanel.add(entriesLabel);
+        sidePanel.add(comparisonsLabel);
+        sidePanel.add(swaps);
+        sidePanel.add(entries);
+        sidePanel.add(comparisons);
         sidePanel.add(amount);
         sidePanel.add(selectAmount);
         sidePanel.add(selection);
@@ -146,11 +173,12 @@ public class SortingVisualizer implements ActionListener {
 
         if (e.getSource() == sort) {
             new Thread(() -> {
+                amountOfSwaps = amountOfEntries = amountOfComparisons = 0;
                 shuffleList.setEnabled(false);
                 selectAmount.setEnabled(false);
                 selectAlg.setEnabled(false);
                 if (selected.equals("Bubble Sort")) {
-                    BubbleSort bs = new BubbleSort(list);
+                    BubbleSort bs = new BubbleSort(list, this);
                     bs.Sort(visualList);
 
                 } else if (selected.equals("Cocktail Sort")) {
@@ -192,16 +220,19 @@ public class SortingVisualizer implements ActionListener {
         }
     }
 
-    public void incrementAmountOfSwaps() {
-
+    public void incrementAmountOfSwaps(int i) {
+        amountOfSwaps += i;
+        swaps.setText(amountOfSwaps + "");
     }
 
-    public void incrementAmountOfEntries() {
-
+    public void incrementAmountOfEntries(int i) {
+        amountOfEntries += i;
+        entries.setText(amountOfEntries + "");
     }
 
-    public void incrementAmountofComparisons() {
-        
+    public void incrementAmountofComparisons(int i) {
+        amountOfComparisons += i;
+        comparisons.setText(amountOfComparisons + "");
     }
 
 }
