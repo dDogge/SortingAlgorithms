@@ -146,95 +146,48 @@ public class SortingVisualizer implements ActionListener {
 
         if (e.getSource() == sort) {
             new Thread(() -> {
+                shuffleList.setEnabled(false);
+                selectAmount.setEnabled(false);
+                selectAlg.setEnabled(false);
                 if (selected.equals("Bubble Sort")) {
                     BubbleSort bs = new BubbleSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     bs.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Cocktail Sort")) {
                     CocktailSort cs = new CocktailSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     cs.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Selection Sort")) {
                     SelectionSort ss = new SelectionSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     ss.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Insertion Sort")) {
                     InsertionSort is = new InsertionSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     is.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Bogo Sort")) {
                     BogoSort bs = new BogoSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     bs.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Merge Sort")) {
                     MergeSort ms = new MergeSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     ms.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Quick Sort")) {
                     QuickSort qs = new QuickSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     qs.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
 
                 } else if (selected.equals("Bucket Sort")) {
                     BucketSort bs = new BucketSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     bs.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
+
                 } else if (selected.equals("Shell Sort")) {
                     ShellSort ss = new ShellSort(list);
-                    shuffleList.setEnabled(false);
-                    selectAmount.setEnabled(false);
-                    selectAlg.setEnabled(false);
                     ss.Sort(visualList);
-                    shuffleList.setEnabled(true);
-                    selectAmount.setEnabled(true);
-                    selectAlg.setEnabled(true);
                 }
+                shuffleList.setEnabled(true);
+                selectAmount.setEnabled(true);
+                selectAlg.setEnabled(true);
             }).start(); // Run sorting on a separate thread
         }
     }
