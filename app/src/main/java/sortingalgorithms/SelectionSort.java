@@ -6,10 +6,12 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class SelectionSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
+    private static SortingVisualizer sv;
 
-    public SelectionSort(List<Integer> list) {
+    public SelectionSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
+        this.sv = sv;
     }
 
     @Override
@@ -20,6 +22,8 @@ public class SelectionSort implements SortingAlgorithm {
             int min = i;
 
             for (int j = i + 1; j < n; j++) {
+                sv.incrementAmountofComparisons(1);
+                sv.incrementAmountOfEntries(2);
                 if (list.get(j) < list.get(min)) {
                     min = j;
                 }
@@ -27,6 +31,8 @@ public class SelectionSort implements SortingAlgorithm {
 
             if (min != i) {
                 Collections.swap(list, i, min);
+                sv.incrementAmountOfSwaps(1);
+                sv.incrementAmountOfEntries(2);
                 visualList.repaint();
                 try {
                     Thread.sleep(5);

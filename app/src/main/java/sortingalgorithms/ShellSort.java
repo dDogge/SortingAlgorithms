@@ -6,10 +6,12 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class ShellSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
+    private static SortingVisualizer sv;
 
-    public ShellSort(List<Integer> list) {
+    public ShellSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
+        this.sv = sv;
     }
 
     @Override
@@ -20,10 +22,17 @@ public class ShellSort implements SortingAlgorithm {
         while (gap > 0) {
             for (int i = gap; i < n; i++) {
                 int temp = list.get(i);
+                sv.incrementAmountOfEntries(1);
                 int j = i;
 
+                sv.incrementAmountOfEntries(1);
+                sv.incrementAmountofComparisons(1);
                 while (j >= gap && list.get(j - gap) > temp) {
+                    sv.incrementAmountofComparisons(1);
+                    sv.incrementAmountOfEntries(1);
                     Collections.swap(list, j, j - gap);
+                    sv.incrementAmountOfSwaps(1);
+                    sv.incrementAmountOfEntries(2);
                     j -= gap;
                     visualList.repaint();
                     try {

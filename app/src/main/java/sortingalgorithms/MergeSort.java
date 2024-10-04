@@ -6,10 +6,12 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class MergeSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
+    private static SortingVisualizer sv;
 
-    public MergeSort(List<Integer> list) {
+    public MergeSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
+        this.sv = sv;
     }
 
     @Override
@@ -37,21 +39,32 @@ public class MergeSort implements SortingAlgorithm {
         int leftIndex = 0, rightIndex = 0, resultIndex = start;
 
         while (leftIndex < left.size() && rightIndex < right.size()) {
+            sv.incrementAmountOfEntries(2);
             if (left.get(leftIndex) <= right.get(rightIndex)) {
+                sv.incrementAmountofComparisons(1);
                 list.set(resultIndex++, left.get(leftIndex++));
+                sv.incrementAmountOfSwaps(1);
+                sv.incrementAmountOfEntries(2);
             } else {
+                sv.incrementAmountofComparisons(1);
                 list.set(resultIndex++, right.get(rightIndex++));
+                sv.incrementAmountOfSwaps(1);
+                sv.incrementAmountOfEntries(2);
             }
             updateVisualList(visualList);
         }
 
         while (leftIndex < left.size()) {
             list.set(resultIndex++, left.get(leftIndex++));
+            sv.incrementAmountOfSwaps(1);
+            sv.incrementAmountOfEntries(2);
             updateVisualList(visualList);
         }
 
         while (rightIndex < right.size()) {
             list.set(resultIndex++, right.get(rightIndex++));
+            sv.incrementAmountOfSwaps(1);
+            sv.incrementAmountOfEntries(2);
             updateVisualList(visualList);
         }
     }

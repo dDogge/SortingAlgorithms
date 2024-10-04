@@ -6,9 +6,11 @@ import javax.swing.JPanel;
 
 public class InsertionSort implements SortingAlgorithm {
     private List<Integer> list;
+    private static SortingVisualizer sv;
 
-    public InsertionSort(List<Integer> list) {
+    public InsertionSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
+        this.sv = sv;
     }
 
     @Override
@@ -17,11 +19,18 @@ public class InsertionSort implements SortingAlgorithm {
         int key;
 
         for (int i = 1; i < n; i++) {
+            sv.incrementAmountOfEntries(1);
             key = list.get(i);
             int j = i - 1;
 
+            sv.incrementAmountOfEntries(1);
+            sv.incrementAmountofComparisons(1);
             while (j >= 0 && list.get(j) > key) {
+                sv.incrementAmountOfEntries(1);
+                sv.incrementAmountofComparisons(1);
                 list.set(j + 1, list.get(j));
+                sv.incrementAmountOfSwaps(1);
+                sv.incrementAmountOfEntries(1);
                 visualList.repaint();
                 try {
                     Thread.sleep(1);
@@ -32,6 +41,8 @@ public class InsertionSort implements SortingAlgorithm {
             }
 
             list.set(j + 1, key);
+            sv.incrementAmountOfSwaps(1);
+            sv.incrementAmountOfEntries(1);
             visualList.repaint();
             try {
                 Thread.sleep(1);

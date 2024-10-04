@@ -6,10 +6,12 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class BogoSort implements SortingAlgorithm {
-    List<Integer> list;
+    private List<Integer> list;
+    private static SortingVisualizer sv;
 
-    public BogoSort(List<Integer> list) {
+    public BogoSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
+        this.sv = sv;
     }
 
     @Override
@@ -20,6 +22,8 @@ public class BogoSort implements SortingAlgorithm {
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < n - 1; i++) {
+                sv.incrementAmountOfEntries(2);
+                sv.incrementAmountofComparisons(1);
                 if (list.get(i) > list.get(i + 1)) {
                     isSorted = false;
                     break;

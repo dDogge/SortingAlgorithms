@@ -182,41 +182,41 @@ public class SortingVisualizer implements ActionListener {
                     bs.Sort(visualList);
 
                 } else if (selected.equals("Cocktail Sort")) {
-                    CocktailSort cs = new CocktailSort(list);
+                    CocktailSort cs = new CocktailSort(list, this);
                     cs.Sort(visualList);
 
                 } else if (selected.equals("Selection Sort")) {
-                    SelectionSort ss = new SelectionSort(list);
+                    SelectionSort ss = new SelectionSort(list, this);
                     ss.Sort(visualList);
 
                 } else if (selected.equals("Insertion Sort")) {
-                    InsertionSort is = new InsertionSort(list);
+                    InsertionSort is = new InsertionSort(list, this);
                     is.Sort(visualList);
 
                 } else if (selected.equals("Bogo Sort")) {
-                    BogoSort bs = new BogoSort(list);
+                    BogoSort bs = new BogoSort(list, this);
                     bs.Sort(visualList);
 
                 } else if (selected.equals("Merge Sort")) {
-                    MergeSort ms = new MergeSort(list);
+                    MergeSort ms = new MergeSort(list, this);
                     ms.Sort(visualList);
 
                 } else if (selected.equals("Quick Sort")) {
-                    QuickSort qs = new QuickSort(list);
+                    QuickSort qs = new QuickSort(list, this);
                     qs.Sort(visualList);
 
                 } else if (selected.equals("Bucket Sort")) {
-                    BucketSort bs = new BucketSort(list);
+                    BucketSort bs = new BucketSort(list, this);
                     bs.Sort(visualList);
 
                 } else if (selected.equals("Shell Sort")) {
-                    ShellSort ss = new ShellSort(list);
+                    ShellSort ss = new ShellSort(list, this);
                     ss.Sort(visualList);
                 }
                 shuffleList.setEnabled(true);
                 selectAmount.setEnabled(true);
                 selectAlg.setEnabled(true);
-            }).start(); // Run sorting on a separate thread
+            }).start();
         }
     }
 

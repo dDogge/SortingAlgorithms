@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class BubbleSort implements SortingAlgorithm {
     private List<Integer> list;
-    private SortingVisualizer sv;
+    private static SortingVisualizer sv;
 
     public BubbleSort(List<Integer> list, SortingVisualizer sv) {
         this.list = list;
@@ -28,6 +28,7 @@ public class BubbleSort implements SortingAlgorithm {
                 if (list.get(i) > list.get(i + 1)) {
                     Collections.swap(list, i, i + 1);
                     sv.incrementAmountOfSwaps(1);
+                    sv.incrementAmountOfEntries(2);
                     visualList.repaint();
                     try {
                         Thread.sleep(1);
