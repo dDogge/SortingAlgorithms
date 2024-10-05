@@ -27,7 +27,7 @@ public class BucketSort implements SortingAlgorithm {
         List<List<Integer>> buckets = new ArrayList<>(nbrOfBuckets);
 
         for (int i = 0; i < nbrOfBuckets; i++) {
-            buckets.add(new ArrayList<>()); 
+            buckets.add(new ArrayList<>());
         }
 
         for (int n : list) {
@@ -45,12 +45,12 @@ public class BucketSort implements SortingAlgorithm {
 
         updateVisual(visualList, buckets, list);
 
-        int startIndex = 0; 
+        int startIndex = 0;
         for (List<Integer> bucket : buckets) {
             sv.incrementAmountOfEntries(1);
             if (!bucket.isEmpty()) {
                 List<Integer> bucketSubList = list.subList(startIndex, startIndex + bucket.size());
-                
+
                 for (int i = 0; i < bucket.size(); i++) {
                     bucketSubList.set(i, bucket.get(i));
                     sv.incrementAmountOfEntries(2);
@@ -72,7 +72,7 @@ public class BucketSort implements SortingAlgorithm {
                 list.set(index++, value);
             }
         }
-        visualList.repaint(); 
+        visualList.repaint();
     }
 
     @Override
