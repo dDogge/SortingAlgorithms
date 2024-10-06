@@ -25,7 +25,7 @@ public class SortingVisualizer implements ActionListener {
     private JLabel swaps, entries, comparisons;
     private JComboBox<String> selection;
     private JComboBox<String> amount;
-    List<Integer> list;
+    private List<Integer> list;
     private String selected;
     private int amountOfSwaps, amountOfEntries, amountOfComparisons;
 
@@ -129,6 +129,7 @@ public class SortingVisualizer implements ActionListener {
         f.setSize(1061, 900);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
+        f.setResizable(false);
     }
 
     private void drawArray(Graphics g) {
@@ -173,6 +174,9 @@ public class SortingVisualizer implements ActionListener {
         }
 
         if (e.getSource() == sort) {
+            if (selected == null) {
+                return;
+            }
             amountOfSwaps = amountOfEntries = amountOfComparisons = 0;
             new Thread(() -> {
                 shuffleList.setEnabled(false);
@@ -216,6 +220,8 @@ public class SortingVisualizer implements ActionListener {
                 } else if (selected.equals("Heap Sort")) {
                     HeapSort hs = new HeapSort(list, this);
                     hs.Sort(visualList);
+                } else {
+                    
                 }
                 shuffleList.setEnabled(true);
                 selectAmount.setEnabled(true);
