@@ -42,6 +42,7 @@ After sorting completes, the visual representation looks like this:
 ![Sorted list](image3.png)
 
 ### Metrics Explained
+![Metrics](image4.png)
 - **SWAPS**: Number of times the list has been modified (`Collections.swap()` or `set()`).
 - **ENTRIES**: Number of accesses to list elements (e.g., `get()`).
 - **COMPARISONS**: Number of element comparisons (e.g., `list.get(i) > list.get(i + 1)`).
