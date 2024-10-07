@@ -37,7 +37,7 @@ public class SortingVisualizer implements ActionListener {
         this.swaps = new JLabel("0");
         this.entries = new JLabel("0");
         this.comparisons = new JLabel("0");
-        this.f = new JFrame("SORT");
+        this.f = new JFrame("SAV");
         this.sidePanel = new JPanel();
         this.shuffleList = new JButton("SHUFFLE LIST");
         this.exit = new JButton("EXIT");
